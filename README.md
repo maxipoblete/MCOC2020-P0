@@ -39,6 +39,8 @@
 
 # E2 - Desempeño MATMUL
 
+![alt text](https://github.com/maxipoblete/MCOC2020-P0/blob/master/MP_timing_matmul.png)
+
 * ¿Como difiere del gráfico del profesor/ayudante?
   * 👉 En primer lugar se puede apreciar que para valores pequeños de N, de entre 2 y 3, se tiene que el tiempo transcurrido puede alcanzar hasta cuatro ordenes de magnitud mas grandes. Sin embargo, a medida que N aumenta hacia valores cercanos a 100, el tiempo transcurrido para el profesor es levemente mayor (1 o 2 ordenes de magnitud) alcanzando los 10 ms, mientras que en mi grafico se puede apreciar que no se alcanza 1 ms. Ocurre de forma similar para N = 200. Por otro lado, a partir de valores de N=2000 la situacion se vuelve a dar vuelta, en la que mi grafico indica que mi computador se tarda un poco mas en realizar las operaciones. Finalmente, un aspecto interesante que se puede apreciar es que el grafico del profesor presenta mayor variabilidad en los tiempos de ejecucion, mientras que en mi grafico se muestra que los tiempos transcurridos se mantienen un poco "mas constantes" en general. Cabe destacar que el limite de N lo puse en 8000 en vez de 20000 para que sobrepasara la memoria que dispongo.
   
