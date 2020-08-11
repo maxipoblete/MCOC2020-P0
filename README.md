@@ -36,7 +36,10 @@
 * Dirección IP (Externa, del ISP): 192.168.0.22
 * Proveedor internet: VTR Banda Ancha S.A.
 
-
+<br>  
+<br>  
+<br>  
+<br>  
 # E2 - Desempeño MATMUL :shipit:
 
 
@@ -80,7 +83,10 @@
   
   ![alt text](https://github.com/maxipoblete/MCOC2020-P0/blob/master/Grafico%20E2.2.png)
   
-  
+<br>  
+<br>  
+<br>  
+<br>  
 # E3 - Desempeño _MI_–MATMUL :shipit:
 
 
@@ -118,4 +124,7 @@
 ![alt text](https://github.com/maxipoblete/MCOC2020-P0/blob/master/Grafico%20E3.2.png)
 
 Según lo que investigue, que se esté usando un 100% de la CPU indicaría que se está utilizando 1 solo nucleo, lo cual puede ser contraproducente, pero puedo confirmarlo ya que en el caso anterior (entrega 2) mi uso de CPU llegaba a niveles de 200% lo que indicaría que se estaban usando los 2 nucleos que tiene mi procesador. <br> FUENTE: https://forums.macrumors.com/threads/how-to-tell-how-many-cores-an-app-uses.1737218/
-
+<br>  
+<br>  
+<br>  
+<br>  
