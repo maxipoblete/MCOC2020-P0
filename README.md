@@ -69,7 +69,8 @@
   [N^2: numero de elementos totales de una matriz de N filas por N columnas]<br>
   [8: representa los bytes utilizados por cada elemento, en este caso son 8 bytes porque cada elemento es un float]<br>
       
-      
+  * 👉 En el caso del grafico de tamaño de la matriz versus tiempo transcurrido no es lineal ya que el computador realiza otros procesos además de ejecutar el programa, y porque los elementos de las matrices estan dados por floats aleatorios, cada corrida es totalmente distinta.   
+  
 ### ¿Qué versión de python está usando?
   * 👉 Estoy utilizando Python 3.8 en Spyder 4.1.4, mediante Anaconda 1.9.12.
   
@@ -109,7 +110,7 @@
   
   
 ### El gráfico de uso de memoria es lineal con el tamaño de matriz, pero el de tiempo transcurrido no lo es ¿porqué puede ser?
-  * 👉 El grafico de uso de memoria resulta ser lineal (y de cierta forma igual que el del ayudante) ya que la memoria utilizada por las matrices es la misma. Esto se debe a que, independiente del valor numerico de los elementos matriciales, cada uno es un componente float que ocupa 8 bytes de almacenamiento. De esta manera, al ser 3 matrices, cada una de N filas y N columnas, se obtiene que la cantidad de memoria se puede calcular mediante la formula general indicada en la sección anterior, que es invariable. 
+  * 👉 El grafico de uso de memoria resulta ser lineal (y de cierta forma igual que el del ayudante) ya que la memoria utilizada por las matrices es la misma. Esto se debe a que, independiente del valor numerico de los elementos matriciales, cada uno es un componente float que ocupa 8 bytes de almacenamiento. De esta manera, al ser 3 matrices, cada una de N filas y N columnas, se obtiene que la cantidad de memoria se puede calcular mediante la formula general indicada en la sección anterior, que es invariable. En el caso del grafico de tamaño de la matriz versus tiempo transcurrido, se tiene que es aparentemente lineal, pero como ya se ha mencionado, esto puede no ser así en todos los casos, como por ejemplo al principio que baja y luego sube, y la razón de esto yace en que el computador tambien realiza otros procesos además de ejecutar el programa, y porque los elementos de las matrices estan dados por floats aleatorios.
   
 ### ¿Qué versión de python está usando?
   * 👉 Estoy utilizando Python 3.8 en Spyder 4.1.4, mediante Anaconda 1.9.12.
