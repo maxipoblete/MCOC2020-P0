@@ -131,3 +131,95 @@ Según lo que investigue, que se esté usando un 100% de la CPU indicaría que s
 <br>  
 <br>  
 <br>  
+
+
+# E4 - Mi computador principal :shipit:
+
+### Acerca de esta entrega
+
+En esta entrega se han estudiado distintos casos para el tiempo transcurrido durante una ejecucion de inversion de matrices con distintos tipos de datos y el consumo de memoria que la ejecucion de la operacion supone. A continuación se presenta los graficos que resumen los resultados:
+
+![alt text]( https://github.com/maxipoblete/MCOC2020-P0/blob/master/Grafico%20E4.1.jpeg )
+![alt text]( https://github.com/maxipoblete/MCOC2020-P0/blob/master/Grafico%20E4.2.jpeg )
+![alt text]( https://github.com/maxipoblete/MCOC2020-P0/blob/master/Grafico%20E4.3.jpeg )
+
+<br>
+<br>
+
+### Casos realizados
+
+En total se realizaron 10 casos, con 3 casos principales en los que se utilizaron 3 opciones distintas de inversion de matrices: (1) ocupando la librería de numpy, (2) utilizando la librería de scipy, sin reutilizar la memoria de la matriz (overwrite=False) y (3) implementando la librería de scipy, reusando la memoria de la matriz (overwrite=True). En cada uno de estos casos principales se utilizaron los tipos de dato: half, single, double y longdouble, exceptuando el primer caso principal, ya que la inversion de matrices con la libreria de numpy no tiene soporte para datos del tipo float16 (half) ni float128 (longdouble).
+
+<br>
+<br>
+
+
+### Tamaño de los datos
+
+La libreria sys tiene una funcion que es sys.getsizeof(), la cual entrega la cantidad de bytes que ocupa un objeto. De esta manera se utilizo el siguiente comando: <br>
+
+```
+numero = 1
+print (f" El tamaño de un dato half en mi MacBook Pro 13'' es de {sys.getsizeof(np.half(numero))} bytes")
+print (f" El tamaño de un dato single en mi MacBook Pro 13'' es de {sys.getsizeof(np.single(numero))} bytes")
+print (f" El tamaño de un dato double en mi MacBook Pro 13'' es de {sys.getsizeof(np.double(numero))} bytes")
+print (f" El tamaño de un dato longdouble en mi MacBook Pro 13'' es de {sys.getsizeof(np.longdouble(numero))} bytes")
+```
+<br>
+
+Y se obtuvo como resultado:
+```
+El tamaño de un dato half en mi MacBook Pro 13'' es de 26 bytes
+El tamaño de un dato single en mi MacBook Pro 13'' es de 28 bytes
+El tamaño de un dato double en mi MacBook Pro 13'' es de 32 bytes
+El tamaño de un dato longdouble en mi MacBook Pro 13'' es de 48 bytes
+```
+<br>
+
+### Registro de utilización de memoria
+
+Caso 1 - SINGLE: ~119% CPU  de un limite de ~200%  (Intel Core i5 Dual Core)<br>
+Caso 1 - DOUBLE: ~120% CPU  de un limite de ~200%  (Intel Core i5 Dual Core)<br>
+<br>
+<br>
+Caso 2 - HALF: ~139% CPU  de un limite de ~200%  (Intel Core i5 Dual Core)<br>
+Caso 2 - SINGLE: ~144% CPU  de un limite de ~200%  (Intel Core i5 Dual Core)<br>
+Caso 2 - DOUBLE: ~149% CPU  de un limite de ~200%  (Intel Core i5 Dual Core)<br>
+Caso 2 - LONGDOUBLE: ~150% CPU  de un limite de ~200%  (Intel Core i5 Dual Core)<br>
+<br>
+<br>
+Caso 3 - HALF: ~130% CPU  de un limite de ~200%  (Intel Core i5 Dual Core)<br>
+Caso 3 - SINGLE: ~143% CPU  de un limite de ~200%  (Intel Core i5 Dual Core)<br>
+Caso 3 - DOUBLE: ~145% CPU  de un limite de ~200%  (Intel Core i5 Dual Core)<br>
+Caso 3 - LONGDOUBLE: ~147% CPU  de un limite de ~200%  (Intel Core i5 Dual Core)<br>
+<br>
+Los valores de CPU utilizados corresponden a aproximaciones ya que a medida que se ejecuta el programa este tiene momentos peak y momentos mas bajos, no es exactamente uniforme, tal como indica el grafico extraido del monitor de actividad:<br>
+![alt text]( https://github.com/maxipoblete/MCOC2020-P0/blob/master/Grafico%20E4.png )
+<br>
+
+### Breve analisis de graficos
+
+En la clase del 10/08 el profesor Abell nos enseño como el tipo de dato influye en el tiempo de ejecucion del programa y la cantidad de memoria utilizada. Si bien no es el objetivo principal del curso aprender el lenguaje binario, bytes y todo lo relacionado a ello, si es de muchisima utilidad para enteder que los programas pueden ser "optimizados" en uso de tiempo y memoria, si uno esta dispuesto a sacrificar algo de precision en los datos. Los tipos de dato con menos "bytes" suelen ser mas "livianos o rapidos" pero menos precisos que los tipos de dato con mayor cantidad de bytes, por ejemplo, un float32 versus un float64. De esta manera, mientras mas bytes tenga un tipo de dato, mas memoria utilizará y menos rapido será el programa. Esto se puede ver reflejado en los graficos ya que se puede apreciar que, por ejemplo, los datos tipo double suelen tener mayores tiempos que los datos tipo single (28 versus 32 bytes). O de la manera mas contrastante, los datos tipo half de 26 bytes (caso 2) se demoran apenas 0.1 segundo para N=2000 , mientras que para los datos tipo longdouble de 48 bytes (caso 2) tienen tiempos por sobre 0.1 segundo, en incluso en el caso 3 se acercan mucho mas a 1 segundo. De esta forma, por muy trivial que parezca, se comprueba que a medida que los datos son mas pesados en bytes, es mas lento el programa, y logicamente ocupa mas memoria.<br>
+<br>
+Con respecto a la diferencia entre el caso 2 y el caso 3, esta radica en que en el ultimo se utiliza la memoria de la matriz anterior para reescribir la matriz inversa. Los resultados de la diferencia, a pesar de no ser muy grandes, son bastante evidentes, por ejemplo en el caso 2 del tipo de dato double, la matriz de tamaño N = 2000 ocupa mucho mas de 100 MB, mientras que en el caso 3, para este mismo tipo de dato, se utilizan apenas 100 MB. 
+<br>
+
+
+
+
+### Respuesta a las preguntas
+
+* ¿Qué algoritmo de inversión cree que utiliza cada método (ver wiki)?
+<br>
+ El "p-adic approximation method" ya que encuentra soluciones aproximadas convergentes
+
+* ¿Como incide el paralelismo y la estructura de caché de su procesador en el desempeño en cada caso? (Ver clase 10 Agosto)
+<br>
+
+En clase estudiamos acerca de las jerarquias de memoria, el disco duro de disco es 10 veces mas lento que el de estado solido (SSD), luego la memoria ram es 10 veces mas rapida que el SSD, y si me quedo sin ram lo que hace el computador es paginacion, lo cual conlleva ir guardando informacion en la memoria, y resulta un proceso sumamente lento que en la practica uno no quiere que pase. Luego , 10 veces mas rapidos son los cache, y se dividen en 3 categorias o niveles:<br>
+> 10x veces mas rapido que la RAM es el cache L3 de 8192KB<br>
+> 10x veces mas rapido que el cache L3 es el cache L2 de 256KB<br>
+> 10x veces mas rapido que el cache L2 es el cache L1 de 32KB<br>
+<br>
+De esta forma si buscamos mas potencia en nuestro equipo debemos fijarnos en estos numeros de los caches. El L1 es el mejor.
+        
