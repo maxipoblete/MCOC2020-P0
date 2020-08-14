@@ -143,8 +143,7 @@ En esta entrega se han estudiado distintos casos para el tiempo transcurrido dur
 ![alt text]( https://github.com/maxipoblete/MCOC2020-P0/blob/master/Grafico%20E4.2.jpeg )
 ![alt text]( https://github.com/maxipoblete/MCOC2020-P0/blob/master/Grafico%20E4.3.jpeg )
 
-<br>
-<br>
+
 
 ### Casos realizados
 
