@@ -38,7 +38,7 @@ Otro aspecto interesante que no está de más destacar (ya que se vio en la entr
 
 Luego, con respecto a los metodos de SCIPY utilizados, los metodos que tenian la opcion de OVERWRITE = TRUE se mantuvieron muy a la par con los que tenian OVERWRITE = FALSE, ya que el mayor impacto que tiene esta opcion es en el uso de la memoria durante la ejecucion del programa. Sin embargo, al realizar la comparacion entre ***El tipo de matriz*** que se utiliza en el solver, las diferencias fueron bastante marcadas. El metodo mas rapido fue el que asumia una matriz Definida Positiva (color verde), luego le siguio el metodo que asumia una matriz Simetrica (color rojizo), y finalmente el metodo mas lento entre ellos fue el que asumia una matriz Generica. 
 
-Este ultimo resultado cumplio con las expectativas ya que, por ejemplo, si al metodo le decimos que se trata de una matriz cualquiera o generica, se demorará menos que si le decirmos que se trata de una matriz simetrica, en la que quizas se puedan tomar "atajos" para resolver el sistema. De cualquier forma, investigando un poco en la pagina de scipy, las posibles opciones de resolucion son:
+Este ultimo resultado cumplio con las expectativas ya que, por ejemplo, si al metodo le decimos que se trata de una matriz cualquiera o generica, se demorará menos que si le decirmos que se trata de una matriz simetrica, en la que quizas se puedan tomar "atajos" para resolver el sistema, ya que se puede utilizar la "mitad" de la matriz y no completa, ya que es "simetrica". De cualquier forma, investigando un poco en la pagina de scipy, las posibles opciones de resolucion son:
 
 
 1. assume_a='gen' : Asumen una matriz Generica, y la solucion se obtiene llamando a la rutina de bajo nivel de LA-PACK --> "?GESV"
